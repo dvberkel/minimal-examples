@@ -1,0 +1,7 @@
+to compile this code execute the following command.
+
+javac HelloWorld.java
+
+To run this code execute the command
+
+java HelloWorld
