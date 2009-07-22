@@ -1,0 +1,7 @@
+To compile the sources execute the following command
+
+ant
+
+to run the program execute
+
+java -classpath target example.HelloWorld
