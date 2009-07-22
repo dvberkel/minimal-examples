@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="Hello World Project - Separation" default="compile" basedir=".">
+	
+	<target name="init">
+		<mkdir dir="target"/>
+	</target>
+	
+	<target name="compile" depends="init">
+		<javac srcdir="${basedir}" destdir="target"/>
+	</target>
+</project>
