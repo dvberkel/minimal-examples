@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>org.effrafax.minimal</groupId>
+  <artifactId>trivial-repo</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <versioning>
+    <snapshot>
+      <buildNumber>1</buildNumber>
+    </snapshot>
+    <lastUpdated>20100227074306</lastUpdated>
+  </versioning>
+</metadata>
