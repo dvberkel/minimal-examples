@@ -26,6 +26,20 @@
 			</extension>
 		</extensions>
 	</build>
+
+	<distributionManagement>
+		<repository>
+			<id>minimal-examples-repository</id>
+			<name>Maven Repository for minimal-examples</name>
+			<url>svn:https://minimal-examples.googlecode.com/svn/maven/repo</url>
+		</repository>
+		<snapshotRepository>
+			<id>minimal-examples-snapshot-repository</id>
+			<name>Maven Repository for minimal-examples (snapshot)</name>
+			<url>svn:https://minimal-examples.googlecode.com/svn/maven/snapshot-repo</url>
+			<uniqueVersion>false</uniqueVersion>
+		</snapshotRepository>
+	</distributionManagement>
 	
 	<dependencies>
 		<dependency>
