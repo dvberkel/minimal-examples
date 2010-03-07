@@ -1,0 +1,11 @@
+To experience this example execute the following sequence of commands.
+
+1) execute the command
+	mvn install
+2) go to the directory sub/project
+3) execute the command
+	mvn help:effective-pom
+
+
+Notice that the resulting pom picks up the definitions defined in the parent 
+pom.
