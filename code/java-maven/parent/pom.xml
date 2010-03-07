@@ -1,0 +1,19 @@
+<project>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.effrafax.minimal</groupId>
+	<artifactId>parent</artifactId>
+	<version>1.0</version>
+	
+	<name>Project Parent</name>
+	<description>This pom examplifies the use of a parent pom.</description>
+	<developers>
+		<developer>
+			<id>daan</id>
+			<name>Daan van Berkel</name>
+			<roles>
+				<role>developer</role>
+			</roles>
+		</developer>
+	</developers>
+</project>
+
