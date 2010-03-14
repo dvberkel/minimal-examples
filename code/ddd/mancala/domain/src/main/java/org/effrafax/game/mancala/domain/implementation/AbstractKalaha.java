@@ -11,89 +11,80 @@ import org.effrafax.game.mancala.message.ExceptionMessage;
 
 /**
  * @author dvberkel
- * 
  */
-public abstract class AbstractKalaha extends AbstractBowl implements Kalaha
-{
-
+public abstract class AbstractKalaha extends AbstractBowl implements Kalaha {
 	private static final long serialVersionUID = 37L;
 
-	public AbstractKalaha()
-	{
-
+	public AbstractKalaha() {
 		super();
 	}
 
-	public AbstractKalaha(Player owner)
-	{
-
+	public AbstractKalaha(Player owner) {
 		this(owner, 0);
 	}
 
-	public AbstractKalaha(Player owner, int numberOfStones)
-	{
-
+	public AbstractKalaha(Player owner, int numberOfStones) {
 		super(owner, numberOfStones);
 	}
 
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see org.effrafax.game.mancala.domain.implementation.AbstractBowl#captureHeap()
+	 * @see
+	 * org.effrafax.game.mancala.domain.implementation.AbstractBowl#captureHeap
+	 * ()
 	 */
 	@Override
-	public Heap captureHeap()
-	{
-
-		throw new IllegalStateException(ExceptionMessage.NO_SUCH_OBJECT_FOR_KALAHA.toString());
+	public Heap captureHeap() {
+		throw new IllegalStateException(
+				ExceptionMessage.NO_SUCH_OBJECT_FOR_KALAHA.toString());
 	}
 
 	/*
 	 * (non-Javadoc)
 	 * 
 	 * @see
-	 * org.effrafax.game.mancala.domain.implementation.AbstractBowl#collectHeap(org.effrafax.game.mancala.domain.Heap)
+	 * 
+	 * org.effrafax.game.mancala.domain.implementation.AbstractBowl#collectHeap(org
+	 * .effrafax.game.mancala.domain.Heap)
 	 */
 	@Override
-	public void collectHeap(Heap heap)
-	{
-
+	public void collectHeap(Heap heap) {
 		this.getHeap().addStone(heap);
 	}
 
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see org.effrafax.game.mancala.domain.implementation.AbstractBowl#getKahala()
+	 * @see
+	 * org.effrafax.game.mancala.domain.implementation.AbstractBowl#getKahala()
 	 */
 	@Override
-	public Kalaha getKahala()
-	{
-
+	public Kalaha getKahala() {
 		return this;
 	}
 
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see org.effrafax.game.mancala.domain.implementation.AbstractBowl#getOppositeBowl()
+	 * @see
+	 * org.effrafax.game.mancala.domain.implementation.AbstractBowl#getOppositeBowl
+	 * ()
 	 */
 	@Override
-	public Bowl getOppositeBowl()
-	{
-
-		throw new IllegalStateException(ExceptionMessage.NO_SUCH_OBJECT_FOR_KALAHA.toString());
+	public Bowl getOppositeBowl() {
+		throw new IllegalStateException(
+				ExceptionMessage.NO_SUCH_OBJECT_FOR_KALAHA.toString());
 	}
 
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see org.effrafax.game.mancala.domain.implementation.AbstractBowl#playable()
+	 * @see
+	 * org.effrafax.game.mancala.domain.implementation.AbstractBowl#playable()
 	 */
 	@Override
-	public boolean playable()
-	{
-
+	public boolean playable() {
 		return false;
 	}
 }

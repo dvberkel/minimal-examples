@@ -15,18 +15,14 @@ import org.effrafax.game.mancala.domain.Player;
  * <li>org.effrafax.game.mancala.domain.Bowl</li>
  * <li>org.effrafax.game.mancala.domain.Kalaha</li>
  * <ul>
- * 
  * We use an enum as an implementation for the singleton pattern.
  * 
  * @author dvberkel
  * @see org.effrafax.game.mancala.domain.Bowl
  * @see org.effrafax.game.mancala.domain.Kalaha
  */
-public enum BowlFactory
-{
-
+public enum BowlFactory {
 	instance;
-
 	/**
 	 * Returns a specific provider of a service.
 	 * 
@@ -37,19 +33,14 @@ public enum BowlFactory
 	 * @return A provider for {@code service}.
 	 * @see java.util.ServiceLoader<S>
 	 */
-	private <S> S getInstance(Class<S> service)
-	{
-
+	private <S> S getInstance(Class<S> service) {
 		ServiceLoader<S> serviceLoader = ServiceLoader.load(service);
-
-		for (S provider : serviceLoader)
-		{
-
+		for (S provider : serviceLoader) {
 			/* We are expecting only one provider */
 			return provider;
 		}
-
-		throw new IllegalStateException("No provider registered for service " + service.toString());
+		throw new IllegalStateException("No provider registered for service "
+				+ service.toString());
 	}
 
 	/**
@@ -59,9 +50,7 @@ public enum BowlFactory
 	 *            The {@code Player} who will own the {@code Bowl}.
 	 * @return An empty {@code Bowl} owned by {@code player}.
 	 */
-	public Bowl getBowl(Player owner)
-	{
-
+	public Bowl getBowl(Player owner) {
 		return getBowl(owner, 0);
 	}
 
@@ -74,12 +63,9 @@ public enum BowlFactory
 	 *            The number of stones the {@code Bowl} will contain.
 	 * @return An empty {@code Bowl} owned by {@code player}.
 	 */
-	public Bowl getBowl(Player owner, int numberOfStones)
-	{
-
+	public Bowl getBowl(Player owner, int numberOfStones) {
 		Bowl bowl = getInstance(Bowl.class);
 		bowl.initialize(owner, numberOfStones);
-
 		return bowl;
 	}
 
@@ -90,9 +76,7 @@ public enum BowlFactory
 	 *            The {@code Player} who will own the {@code Kalaha}.
 	 * @return An empty {@code Kalaha} owned by {@code player}.
 	 */
-	public Kalaha getKalaha(Player owner)
-	{
-
+	public Kalaha getKalaha(Player owner) {
 		return getKalaha(owner, 0);
 	}
 
@@ -105,13 +89,9 @@ public enum BowlFactory
 	 *            The number of stones the {@code Kalaha} will contain.
 	 * @return An empty {@code Kalaha} owned by {@code player}.
 	 */
-	public Kalaha getKalaha(Player owner, int numberOfStones)
-	{
-
+	public Kalaha getKalaha(Player owner, int numberOfStones) {
 		Kalaha kalaha = getInstance(Kalaha.class);
 		kalaha.initialize(owner, numberOfStones);
-
 		return kalaha;
 	}
-
 }

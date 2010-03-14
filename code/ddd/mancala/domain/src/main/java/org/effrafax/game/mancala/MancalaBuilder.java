@@ -10,26 +10,19 @@ import org.effrafax.game.mancala.message.ExceptionMessage;
  * This class is used in the construction of the a mancala game.
  * 
  * @author dvberkel
- * 
  */
-public class MancalaBuilder
-{
-
+public class MancalaBuilder {
 	/**
 	 * Default values for a MancalaBuilder
 	 */
 	private int numberOfBowls = 6;
-
 	private int numberOfStones = 4;
-
 	private Player startPlayer = Player.white;
 
 	/**
 	 * @return the numberOfBowls
 	 */
-	public int getNumberOfBowls()
-	{
-
+	public int getNumberOfBowls() {
 		return numberOfBowls;
 	}
 
@@ -39,25 +32,20 @@ public class MancalaBuilder
 	 * @throws IllegalArgumentException
 	 *             if {@code numberOfBowls} is less then one.
 	 */
-	public MancalaBuilder setNumberOfBowls(int numberOfBowls) throws IllegalArgumentException
-	{
-
-		if (numberOfBowls < 1)
-		{
-
-			throw new IllegalArgumentException(ExceptionMessage.NON_POSITIVE.toString());
+	public MancalaBuilder setNumberOfBowls(int numberOfBowls)
+			throws IllegalArgumentException {
+		if (numberOfBowls < 1) {
+			throw new IllegalArgumentException(ExceptionMessage.NON_POSITIVE
+					.toString());
 		}
-
 		this.numberOfBowls = numberOfBowls;
-
 		return this;
 	}
 
 	/**
 	 * @return the numberOfStones
 	 */
-	public int getNumberOfStones()
-	{
+	public int getNumberOfStones() {
 		return numberOfStones;
 	}
 
@@ -67,25 +55,20 @@ public class MancalaBuilder
 	 * @throws IllegalArgumentException
 	 *             if {@code numberOfBowls} is less then one.
 	 */
-	public MancalaBuilder setNumberOfStones(int numberOfStones) throws IllegalArgumentException
-	{
-
-		if (numberOfStones < 1)
-		{
-
-			throw new IllegalArgumentException(ExceptionMessage.NON_POSITIVE.toString());
+	public MancalaBuilder setNumberOfStones(int numberOfStones)
+			throws IllegalArgumentException {
+		if (numberOfStones < 1) {
+			throw new IllegalArgumentException(ExceptionMessage.NON_POSITIVE
+					.toString());
 		}
-
 		this.numberOfStones = numberOfStones;
-
 		return this;
 	}
 
 	/**
 	 * @return the startPlayer
 	 */
-	public Player getStartPlayer()
-	{
+	public Player getStartPlayer() {
 		return startPlayer;
 	}
 
@@ -95,17 +78,12 @@ public class MancalaBuilder
 	 * @throws IllegalArgumentException
 	 *             if {@code startPlayer} is {@code null}.
 	 */
-	public MancalaBuilder setStartPlayer(Player startPlayer)
-	{
-
-		if (startPlayer == null)
-		{
-
-			throw new IllegalArgumentException(ExceptionMessage.NON_NULL.toString());
+	public MancalaBuilder setStartPlayer(Player startPlayer) {
+		if (startPlayer == null) {
+			throw new IllegalArgumentException(ExceptionMessage.NON_NULL
+					.toString());
 		}
-
 		this.startPlayer = startPlayer;
-
 		return this;
 	}
 }

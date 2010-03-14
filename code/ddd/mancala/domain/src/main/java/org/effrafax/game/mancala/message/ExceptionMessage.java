@@ -7,11 +7,8 @@ package org.effrafax.game.mancala.message;
  * This enum provides various error messages for the domain.
  * 
  * @author dvberkel
- * 
  */
-public enum ExceptionMessage
-{
-
+public enum ExceptionMessage {
 	NON_NULL("argument should be non null."), //
 	NON_NEGATIVE("argument should be non-negative."), //
 	NON_POSITIVE("argument should be greater then zero."), //
@@ -28,28 +25,20 @@ public enum ExceptionMessage
 	NOT_PLAYABLE("the bowl is not playable."), //
 	VALID_OPTION("please enter a valid option."), //
 	UNRECOVERABLE("Aaaaargh, the pain, the agony, help me, help!");
-
 	private String message = "an exception has occured";
-
 	private ExceptionMessage[] exceptionMessages = {};
-
 	private boolean messageGenerated = false;
 
-	private ExceptionMessage(String message)
-	{
-
+	private ExceptionMessage(String message) {
 		this(message, new ExceptionMessage[] {});
 	}
 
-	private ExceptionMessage(ExceptionMessage... exceptionMessages)
-	{
-
+	private ExceptionMessage(ExceptionMessage... exceptionMessages) {
 		this("", exceptionMessages);
 	}
 
-	private ExceptionMessage(String message, ExceptionMessage... exceptionMessages)
-	{
-
+	private ExceptionMessage(String message,
+			ExceptionMessage... exceptionMessages) {
 		this.message = message;
 		this.exceptionMessages = exceptionMessages;
 	}
@@ -60,22 +49,15 @@ public enum ExceptionMessage
 	 * @see java.lang.Enum#toString()
 	 */
 	@Override
-	public String toString()
-	{
-
-		if (exceptionMessages.length != 0 && !messageGenerated)
-		{
+	public String toString() {
+		if (exceptionMessages.length != 0 && !messageGenerated) {
 			StringBuilder builder = new StringBuilder();
-			for (int index = 0; index < exceptionMessages.length; index++)
-			{
-
+			for (int index = 0; index < exceptionMessages.length; index++) {
 				builder.append(exceptionMessages[index]);
 			}
-
 			message = builder.toString();
 			messageGenerated = true;
 		}
-
 		return message;
 	}
 }

@@ -10,28 +10,19 @@ import org.effrafax.game.mancala.domain.Player;
  * This class represent a kalaha following the standard rule set.
  * 
  * @author dvberkel
- * 
  */
-public class StandardKalaha extends AbstractKalaha
-{
-
+public class StandardKalaha extends AbstractKalaha {
 	private static final long serialVersionUID = 37L;
 
-	public StandardKalaha()
-	{
-
-		/* default constructor provided for the service loader */
+	public StandardKalaha() {
+	/* default constructor provided for the service loader */
 	}
 
-	public StandardKalaha(Player owner)
-	{
-
+	public StandardKalaha(Player owner) {
 		super(owner);
 	}
 
-	public StandardKalaha(Player owner, int numberOfStones)
-	{
-
+	public StandardKalaha(Player owner, int numberOfStones) {
 		super(owner, numberOfStones);
 	}
 
@@ -39,27 +30,19 @@ public class StandardKalaha extends AbstractKalaha
 	 * (non-Javadoc)
 	 * 
 	 * @see
-	 * org.effrafax.game.mancala.domain.implementation.AbstractKalaha#receiveHeap(org.effrafax.game.mancala.domain.Heap)
+	 * org.effrafax.game.mancala.domain.implementation.AbstractKalaha#receiveHeap
+	 * (org.effrafax.game.mancala.domain.Heap)
 	 */
 	@Override
-	public boolean receiveHeap(Heap heap)
-	{
-
+	public boolean receiveHeap(Heap heap) {
 		assert (heap.countStones() > 0);
-
-		if (getOwner().equals(heap.getOwner()))
-		{
-
+		if (getOwner().equals(heap.getOwner())) {
 			heap.removeStone();
 			getHeap().addStone();
 		}
-
-		if (heap.countStones() > 0)
-		{
-
+		if (heap.countStones() > 0) {
 			return getNextBowl().receiveHeap(heap);
 		}
-
 		return true;
 	}
 }
