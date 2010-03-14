@@ -8,6 +8,7 @@ import static org.junit.Assert.assertEquals;
 import org.effrafax.game.mancala.domain.Bowl;
 import org.effrafax.game.mancala.domain.Kalaha;
 import org.effrafax.game.mancala.domain.Player;
+import org.effrafax.game.mancala.factory.implementation.BowlFactory;
 import org.junit.Test;
 
 /**
