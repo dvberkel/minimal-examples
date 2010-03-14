@@ -9,7 +9,7 @@ import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
-import org.effrafax.game.mancala.domain.Heap;
+import org.effrafax.game.mancala.domain.StandardHeap;
 import org.effrafax.game.mancala.domain.Player;
 import org.junit.Test;
 
@@ -93,7 +93,7 @@ public class AbstractBowlTest
 
 		AbstractBowl bowl = new MockBowl(Player.white, 4);
 
-		Heap capturedHeap = bowl.captureHeap();
+		StandardHeap capturedHeap = bowl.captureHeap();
 
 		assertEquals(4, capturedHeap.countStones());
 		assertEquals(0, bowl.countStones());

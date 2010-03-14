@@ -3,7 +3,7 @@
  */
 package org.effrafax.game.mancala.domain.implementation;
 
-import org.effrafax.game.mancala.domain.Heap;
+import org.effrafax.game.mancala.domain.StandardHeap;
 import org.effrafax.game.mancala.domain.Player;
 
 /**
@@ -33,7 +33,7 @@ public class MockBowl extends AbstractBowl
 	}
 
 	@Override
-	public boolean receiveHeap(Heap heap)
+	public boolean receiveHeap(StandardHeap heap)
 	{
 
 		/* This method is should not be tested so no implementation is given. */

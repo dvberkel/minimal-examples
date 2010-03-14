@@ -4,7 +4,7 @@
 package org.effrafax.game.mancala.domain.implementation;
 
 import org.effrafax.game.mancala.domain.Bowl;
-import org.effrafax.game.mancala.domain.Heap;
+import org.effrafax.game.mancala.domain.StandardHeap;
 import org.effrafax.game.mancala.domain.Kalaha;
 import org.effrafax.game.mancala.domain.Player;
 import org.effrafax.game.mancala.message.ExceptionMessage;
@@ -35,7 +35,7 @@ public abstract class AbstractKalaha extends AbstractBowl implements Kalaha {
 	 * ()
 	 */
 	@Override
-	public Heap captureHeap() {
+	public StandardHeap captureHeap() {
 		throw new IllegalStateException(
 				ExceptionMessage.NO_SUCH_OBJECT_FOR_KALAHA.toString());
 	}
@@ -49,7 +49,7 @@ public abstract class AbstractKalaha extends AbstractBowl implements Kalaha {
 	 * .effrafax.game.mancala.domain.Heap)
 	 */
 	@Override
-	public void collectHeap(Heap heap) {
+	public void collectHeap(StandardHeap heap) {
 		this.getHeap().addStone(heap);
 	}
 

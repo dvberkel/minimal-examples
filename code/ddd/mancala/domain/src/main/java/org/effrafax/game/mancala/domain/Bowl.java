@@ -86,14 +86,14 @@ public interface Bowl {
 	 * @return {@code true} if the an other turn can be made, {@code false}
 	 *         otherwise.
 	 */
-	public boolean receiveHeap(Heap heap);
+	public boolean receiveHeap(StandardHeap heap);
 
 	/**
 	 * Captures the {@code Heap} of this {@code Bowl}.
 	 * 
 	 * @return The captured {@code Heap}.
 	 */
-	public Heap captureHeap();
+	public StandardHeap captureHeap();
 
 	/**
 	 * Collects a captured {@code Heap}.
@@ -101,7 +101,7 @@ public interface Bowl {
 	 * @param heap
 	 *            The {@code Heap} that is captured.
 	 */
-	public void collectHeap(Heap heap);
+	public void collectHeap(StandardHeap heap);
 
 	/**
 	 * Returns the {@code Kalaha} of the {@code Player} who owns this {@code

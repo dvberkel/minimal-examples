@@ -12,7 +12,7 @@ import org.effrafax.game.mancala.message.ExceptionMessage;
  * 
  * @author dvberkel
  */
-public class Heap implements Serializable {
+public class StandardHeap implements Serializable {
 	private static final long serialVersionUID = 37L;
 	private int numberOfStones = 0;
 	private Player owner = null;
@@ -23,7 +23,7 @@ public class Heap implements Serializable {
 	 * @param player
 	 *            The owner of this {@code Heap}.
 	 */
-	public Heap(Player player) {
+	public StandardHeap(Player player) {
 		this.setOwner(player);
 	}
 
@@ -39,7 +39,7 @@ public class Heap implements Serializable {
 	 * @throws IllegalArgumentException
 	 *             if {@code numberOfStones} is negative.
 	 */
-	public Heap(Player player, int numberOfStones)
+	public StandardHeap(Player player, int numberOfStones)
 			throws IllegalArgumentException {
 		this(player);
 		this.addStone(numberOfStones);
@@ -88,7 +88,7 @@ public class Heap implements Serializable {
 	 * @param heap
 	 *            The heap which stones get added to this {@code Heap}.
 	 */
-	public void addStone(Heap heap) {
+	public void addStone(StandardHeap heap) {
 		int numberOfStones = heap.countStones();
 		heap.removeStone(numberOfStones);
 		this.addStone(numberOfStones);
