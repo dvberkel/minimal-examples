@@ -5,10 +5,12 @@ package org.effrafax.game.mancala.factory.implementation;
 
 import java.util.ServiceLoader;
 
+import org.effrafax.game.mancala.factory.Factory;
+
 /**
  * @author dvberkel
  */
-public abstract class AbstractFactory {
+public abstract class AbstractFactory<T> implements Factory<T> {
 	/**
 	 * Returns a specific provider of a service.
 	 * 
