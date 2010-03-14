@@ -11,6 +11,7 @@ import java.util.Map;
 
 import org.effrafax.game.mancala.domain.Bowl;
 import org.effrafax.game.mancala.domain.Player;
+import org.effrafax.game.mancala.factory.implementation.BoardFactory;
 import org.effrafax.game.mancala.message.ExceptionMessage;
 
 /**

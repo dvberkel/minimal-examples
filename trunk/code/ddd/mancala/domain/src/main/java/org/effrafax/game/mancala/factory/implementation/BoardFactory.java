@@ -1,11 +1,12 @@
 /**
  * 
  */
-package org.effrafax.game.mancala;
+package org.effrafax.game.mancala.factory.implementation;
 
 import java.util.HashMap;
 import java.util.Map;
 
+import org.effrafax.game.mancala.MancalaBuilder;
 import org.effrafax.game.mancala.domain.Bowl;
 import org.effrafax.game.mancala.domain.Kalaha;
 import org.effrafax.game.mancala.domain.Player;
