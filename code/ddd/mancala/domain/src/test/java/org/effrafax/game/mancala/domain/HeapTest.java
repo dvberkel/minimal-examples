@@ -36,7 +36,7 @@ public class HeapTest
 	public void testAddStone()
 	{
 
-		StandardHeap heap = new StandardHeap(Player.white);
+		Heap heap = new StandardHeap(Player.white);
 
 		heap.addStone();
 		assertEquals(1, heap.countStones());
@@ -44,7 +44,7 @@ public class HeapTest
 		heap.addStone(2);
 		assertEquals(3, heap.countStones());
 
-		StandardHeap addedHeap = new StandardHeap(Player.white, 3);
+		Heap addedHeap = new StandardHeap(Player.white, 3);
 		heap.addStone(addedHeap);
 		assertEquals(6, heap.countStones());
 		assertEquals(0, addedHeap.countStones());
@@ -57,7 +57,7 @@ public class HeapTest
 	public void testRemoveStone()
 	{
 
-		StandardHeap heap = new StandardHeap(Player.white, 3);
+		Heap heap = new StandardHeap(Player.white, 3);
 
 		heap.removeStone();
 		assertEquals(2, heap.countStones());
