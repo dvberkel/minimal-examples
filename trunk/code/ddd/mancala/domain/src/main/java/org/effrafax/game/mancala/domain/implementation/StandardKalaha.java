@@ -3,7 +3,7 @@
  */
 package org.effrafax.game.mancala.domain.implementation;
 
-import org.effrafax.game.mancala.domain.Heap;
+import org.effrafax.game.mancala.domain.StandardHeap;
 import org.effrafax.game.mancala.domain.Player;
 
 /**
@@ -34,7 +34,7 @@ public class StandardKalaha extends AbstractKalaha {
 	 * (org.effrafax.game.mancala.domain.Heap)
 	 */
 	@Override
-	public boolean receiveHeap(Heap heap) {
+	public boolean receiveHeap(StandardHeap heap) {
 		assert (heap.countStones() > 0);
 		if (getOwner().equals(heap.getOwner())) {
 			heap.removeStone();

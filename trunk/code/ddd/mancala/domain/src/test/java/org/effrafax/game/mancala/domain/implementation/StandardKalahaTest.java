@@ -8,7 +8,7 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import org.effrafax.game.mancala.domain.Bowl;
-import org.effrafax.game.mancala.domain.Heap;
+import org.effrafax.game.mancala.domain.StandardHeap;
 import org.effrafax.game.mancala.domain.Kalaha;
 import org.effrafax.game.mancala.domain.Player;
 import org.junit.Test;
@@ -27,7 +27,7 @@ public class StandardKalahaTest
 
 		Kalaha kalaha = new StandardKalaha(Player.white);
 
-		Heap heap = new Heap(Player.white, 1);
+		StandardHeap heap = new StandardHeap(Player.white, 1);
 
 		assertTrue(kalaha.receiveHeap(heap));
 		assertEquals(1, kalaha.countStones());
@@ -36,7 +36,7 @@ public class StandardKalahaTest
 		{
 
 			@Override
-			public boolean receiveHeap(Heap heap)
+			public boolean receiveHeap(StandardHeap heap)
 			{
 
 				heap.removeStone();
@@ -47,7 +47,7 @@ public class StandardKalahaTest
 		};
 		kalaha.setNextBowl(bowl);
 
-		heap = new Heap(Player.black, 1);
+		heap = new StandardHeap(Player.black, 1);
 
 		assertFalse(kalaha.receiveHeap(heap));
 		assertEquals(1, kalaha.countStones());

@@ -6,7 +6,7 @@ package org.effrafax.game.mancala.domain.implementation;
 import java.io.Serializable;
 
 import org.effrafax.game.mancala.domain.Bowl;
-import org.effrafax.game.mancala.domain.Heap;
+import org.effrafax.game.mancala.domain.StandardHeap;
 import org.effrafax.game.mancala.domain.Kalaha;
 import org.effrafax.game.mancala.domain.Player;
 import org.effrafax.game.mancala.message.ExceptionMessage;
@@ -19,7 +19,7 @@ import org.effrafax.game.mancala.message.ExceptionMessage;
  */
 public abstract class AbstractBowl implements Bowl, Serializable {
 	private static final long serialVersionUID = 37L;
-	private Heap heap = null;
+	private StandardHeap heap = null;
 	private Player owner = null;
 	private Bowl nextBowl = null;
 	private Bowl oppositeBowl = null;
@@ -46,7 +46,7 @@ public abstract class AbstractBowl implements Bowl, Serializable {
 	@Override
 	public void initialize(Player owner, int numberOfStones) {
 		setOwner(owner);
-		setHeap(new Heap(owner, numberOfStones));
+		setHeap(new StandardHeap(owner, numberOfStones));
 	}
 
 	/**
@@ -79,7 +79,7 @@ public abstract class AbstractBowl implements Bowl, Serializable {
 	 * @param heap
 	 *            The {@code Heap} used to set this {@code AbstractBowl} with.
 	 */
-	protected void setHeap(Heap heap) {
+	protected void setHeap(StandardHeap heap) {
 		this.heap = heap;
 	}
 
@@ -88,7 +88,7 @@ public abstract class AbstractBowl implements Bowl, Serializable {
 	 * 
 	 * @return The {@code Heap} of this {@code AbstractBowl}.
 	 */
-	protected Heap getHeap() {
+	protected StandardHeap getHeap() {
 		return heap;
 	}
 
@@ -98,10 +98,10 @@ public abstract class AbstractBowl implements Bowl, Serializable {
 	 * @see org.effrafax.game.mancala.domain.Bowl#captureHeap()
 	 */
 	@Override
-	public Heap captureHeap() {
-		Heap capturedHeap = heap;
+	public StandardHeap captureHeap() {
+		StandardHeap capturedHeap = heap;
 		capturedHeap.changeOwner();
-		heap = new Heap(getOwner());
+		heap = new StandardHeap(getOwner());
 		return capturedHeap;
 	}
 
@@ -113,7 +113,7 @@ public abstract class AbstractBowl implements Bowl, Serializable {
 	 * .domain.Heap)
 	 */
 	@Override
-	public void collectHeap(Heap heap) {
+	public void collectHeap(StandardHeap heap) {
 		getNextBowl().collectHeap(heap);
 	}
 
@@ -218,8 +218,8 @@ public abstract class AbstractBowl implements Bowl, Serializable {
 			throw new IllegalArgumentException(ExceptionMessage.NOT_PLAYABLE
 					.toString());
 		}
-		Heap playingHeap = heap;
-		heap = new Heap(owner, 0);
+		StandardHeap playingHeap = heap;
+		heap = new StandardHeap(owner, 0);
 		return getNextBowl().receiveHeap(playingHeap);
 	}
 

@@ -3,7 +3,7 @@
  */
 package org.effrafax.game.mancala.domain.implementation;
 
-import org.effrafax.game.mancala.domain.Heap;
+import org.effrafax.game.mancala.domain.StandardHeap;
 import org.effrafax.game.mancala.domain.Player;
 
 /**
@@ -35,7 +35,7 @@ public class StandardBowl extends AbstractBowl {
 	 * .effrafax.game.mancala.domain.Heap)
 	 */
 	@Override
-	public boolean receiveHeap(Heap heap) {
+	public boolean receiveHeap(StandardHeap heap) {
 		assert (heap.countStones() > 0);
 		heap.removeStone();
 		getHeap().addStone();
@@ -43,7 +43,7 @@ public class StandardBowl extends AbstractBowl {
 			return getNextBowl().receiveHeap(heap);
 		} else {
 			if (countStones() == 1 && getOwner().equals(heap.getOwner())) {
-				Heap capturedHeap = getOppositeBowl().captureHeap();
+				StandardHeap capturedHeap = getOppositeBowl().captureHeap();
 				capturedHeap.addStone(getHeap());
 				collectHeap(capturedHeap);
 			}
