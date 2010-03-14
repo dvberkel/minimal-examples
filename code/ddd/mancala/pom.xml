@@ -62,6 +62,14 @@
 					<target>${java.version}</target>
 				</configuration>
 			</plugin>
+			
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-eclipse-plugin</artifactId>
+				<configuration>
+					<workspaceCodeStylesURL>http://minimal-examples.googlecode.com/svn/trunk/code/ddd/mancala/src/main/resources/eclipse-formatter</workspaceCodeStylesURL>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 </project>
