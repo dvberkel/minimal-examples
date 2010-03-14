@@ -10,6 +10,7 @@ import org.effrafax.game.mancala.domain.Heap;
 import org.effrafax.game.mancala.domain.Kalaha;
 import org.effrafax.game.mancala.domain.Ownable;
 import org.effrafax.game.mancala.domain.Player;
+import org.effrafax.game.mancala.factory.implementation.OwnableFactory;
 import org.effrafax.game.mancala.message.ExceptionMessage;
 
 /**
@@ -217,7 +218,7 @@ public abstract class AbstractBowl implements Bowl, Serializable {
 	 */
 	private Ownable getOwnableDelegate() {
 		if (ownableDelegate == null) {
-			setOwnableDelegate(new StandardOwnable());
+			setOwnableDelegate(OwnableFactory.instance.getInstance());
 		}
 		return ownableDelegate;
 	}
