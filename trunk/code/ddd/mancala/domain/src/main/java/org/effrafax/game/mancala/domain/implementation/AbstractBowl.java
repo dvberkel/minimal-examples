@@ -6,6 +6,7 @@ package org.effrafax.game.mancala.domain.implementation;
 import java.io.Serializable;
 
 import org.effrafax.game.mancala.domain.Bowl;
+import org.effrafax.game.mancala.domain.Heap;
 import org.effrafax.game.mancala.domain.StandardHeap;
 import org.effrafax.game.mancala.domain.Kalaha;
 import org.effrafax.game.mancala.domain.Player;
@@ -19,7 +20,7 @@ import org.effrafax.game.mancala.message.ExceptionMessage;
  */
 public abstract class AbstractBowl implements Bowl, Serializable {
 	private static final long serialVersionUID = 37L;
-	private StandardHeap heap = null;
+	private Heap heap = null;
 	private Player owner = null;
 	private Bowl nextBowl = null;
 	private Bowl oppositeBowl = null;
@@ -79,7 +80,7 @@ public abstract class AbstractBowl implements Bowl, Serializable {
 	 * @param heap
 	 *            The {@code Heap} used to set this {@code AbstractBowl} with.
 	 */
-	protected void setHeap(StandardHeap heap) {
+	protected void setHeap(Heap heap) {
 		this.heap = heap;
 	}
 
@@ -88,7 +89,7 @@ public abstract class AbstractBowl implements Bowl, Serializable {
 	 * 
 	 * @return The {@code Heap} of this {@code AbstractBowl}.
 	 */
-	protected StandardHeap getHeap() {
+	protected Heap getHeap() {
 		return heap;
 	}
 
@@ -98,8 +99,8 @@ public abstract class AbstractBowl implements Bowl, Serializable {
 	 * @see org.effrafax.game.mancala.domain.Bowl#captureHeap()
 	 */
 	@Override
-	public StandardHeap captureHeap() {
-		StandardHeap capturedHeap = heap;
+	public Heap captureHeap() {
+		Heap capturedHeap = heap;
 		capturedHeap.changeOwner();
 		heap = new StandardHeap(getOwner());
 		return capturedHeap;
@@ -113,7 +114,7 @@ public abstract class AbstractBowl implements Bowl, Serializable {
 	 * .domain.Heap)
 	 */
 	@Override
-	public void collectHeap(StandardHeap heap) {
+	public void collectHeap(Heap heap) {
 		getNextBowl().collectHeap(heap);
 	}
 
@@ -218,7 +219,7 @@ public abstract class AbstractBowl implements Bowl, Serializable {
 			throw new IllegalArgumentException(ExceptionMessage.NOT_PLAYABLE
 					.toString());
 		}
-		StandardHeap playingHeap = heap;
+		Heap playingHeap = heap;
 		heap = new StandardHeap(owner, 0);
 		return getNextBowl().receiveHeap(playingHeap);
 	}

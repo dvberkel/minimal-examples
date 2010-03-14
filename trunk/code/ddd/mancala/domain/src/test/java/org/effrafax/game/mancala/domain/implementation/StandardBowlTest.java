@@ -6,6 +6,7 @@ package org.effrafax.game.mancala.domain.implementation;
 import static org.junit.Assert.assertEquals;
 
 import org.effrafax.game.mancala.domain.Bowl;
+import org.effrafax.game.mancala.domain.Heap;
 import org.effrafax.game.mancala.domain.StandardHeap;
 import org.effrafax.game.mancala.domain.Player;
 import org.junit.Test;
@@ -25,7 +26,7 @@ public class StandardBowlTest
 	{
 
 		Bowl bowl = new StandardBowl(Player.white, 1);
-		StandardHeap heap = new StandardHeap(Player.black, 1);
+		Heap heap = new StandardHeap(Player.black, 1);
 
 		bowl.receiveHeap(heap);
 
@@ -56,7 +57,7 @@ public class StandardBowlTest
 		bowl.setOppositeBowl(oppositeBowl);
 		bowl.setNextBowl(new MockKalaha(Player.white, 0));
 
-		StandardHeap heap = new StandardHeap(Player.white, 1);
+		Heap heap = new StandardHeap(Player.white, 1);
 
 		bowl.receiveHeap(heap);
 
