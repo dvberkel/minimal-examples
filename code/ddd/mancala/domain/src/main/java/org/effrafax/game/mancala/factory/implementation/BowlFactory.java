@@ -1,7 +1,7 @@
 /**
  * 
  */
-package org.effrafax.game.mancala;
+package org.effrafax.game.mancala.factory.implementation;
 
 import java.util.ServiceLoader;
 
