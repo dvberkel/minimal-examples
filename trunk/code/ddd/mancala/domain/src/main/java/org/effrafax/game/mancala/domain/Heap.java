@@ -1,6 +1,6 @@
 package org.effrafax.game.mancala.domain;
 
-public interface Heap {
+public interface Heap extends Ownable {
 	/**
 	 * Counts the number of stones in this {@code Heap}.
 	 * 
@@ -65,26 +65,4 @@ public interface Heap {
 	 *             If this {@code Heap} does not contain one stone.
 	 */
 	public abstract void removeStone() throws IllegalStateException;
-
-	/**
-	 * @return the owner
-	 */
-	public abstract Player getOwner();
-
-	/**
-	 * Setter for the owner of this {@code Heap}. An exception is thrown if
-	 * {@code owner} is null.
-	 * 
-	 * @param owner
-	 *            the owner to set
-	 * @throws IllegalArgumentException
-	 *             if {@code owner} is null.
-	 */
-	public abstract void setOwner(Player owner) throws IllegalArgumentException;
-
-	/**
-	 * Changes the ownership of this {@code Heap} to the opponent of the current
-	 * owner.
-	 */
-	public abstract void changeOwner();
 }
