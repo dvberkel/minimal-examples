@@ -36,7 +36,5 @@ public enum Player {
 	 * 
 	 * @return The opponent.
 	 */
-	public Player opponent() {
-		throw new IllegalStateException("method should be overriden");
-	}
+	abstract public Player opponent();
 }
