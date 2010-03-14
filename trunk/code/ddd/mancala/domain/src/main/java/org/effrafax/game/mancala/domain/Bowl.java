@@ -8,7 +8,7 @@ package org.effrafax.game.mancala.domain;
  * 
  * @author dvberkel
  */
-public interface Bowl {
+public interface Bowl extends Ownable {
 	/**
 	 * Initializes this {@code Bowl}. The owning player and the number of stones
 	 * will be set for this {@code Bowl}.
@@ -28,13 +28,6 @@ public interface Bowl {
 	public int countStones();
 
 	/**
-	 * Returns the owner of this {@code Bowl}.
-	 * 
-	 * @return The owner of this {@code Bowl}.
-	 */
-	public Player getOwner();
-
-	/**
 	 * Returns the {@code Bowl} which follows this {@code Bowl}.
 	 * 
 	 * @return The {@code Bowl} following this {@code Bowl}.
@@ -52,8 +45,7 @@ public interface Bowl {
 	 * @throws IllegalStateException
 	 *             if the next bowl is already set.
 	 */
-	public void setNextBowl(Bowl nextBowl) throws IllegalArgumentException,
-			IllegalStateException;
+	public void setNextBowl(Bowl nextBowl) throws IllegalArgumentException, IllegalStateException;
 
 	/**
 	 * Returns the {@code Bowl} which is opposite to this {@code Bowl}.
@@ -74,8 +66,7 @@ public interface Bowl {
 	 * @throws IllegalStateException
 	 *             if the opposite bowl is already set.
 	 */
-	public void setOppositeBowl(Bowl oppositeBowl)
-			throws IllegalArgumentException, IllegalStateException;
+	public void setOppositeBowl(Bowl oppositeBowl) throws IllegalArgumentException, IllegalStateException;
 
 	/**
 	 * This method performs the action for this {@code Bowl} when a {@code Heap}
