@@ -12,58 +12,46 @@ import org.effrafax.game.mancala.domain.Player;
 import org.effrafax.game.mancala.message.ExceptionMessage;
 
 /**
- * This abstract class provides a almost complete implementation of the {@code Bowl} interface.
+ * This abstract class provides a almost complete implementation of the {@code
+ * Bowl} interface.
  * 
  * @author dvberkel
- * 
  */
-public abstract class AbstractBowl implements Bowl, Serializable
-{
-
+public abstract class AbstractBowl implements Bowl, Serializable {
 	private static final long serialVersionUID = 37L;
-
 	private Heap heap = null;
-
 	private Player owner = null;
-
 	private Bowl nextBowl = null;
-
 	private Bowl oppositeBowl = null;
 
-	public AbstractBowl()
-	{
-
-		/* This constructor is provided for the serviceloader. */
+	public AbstractBowl() {
+	/* This constructor is provided for the serviceloader. */
 	}
 
-	public AbstractBowl(Player owner)
-	{
-
+	public AbstractBowl(Player owner) {
 		this(owner, 0);
 	}
 
-	public AbstractBowl(Player owner, int numberOfStones)
-	{
-
+	public AbstractBowl(Player owner, int numberOfStones) {
 		initialize(owner, numberOfStones);
 	}
 
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see org.effrafax.game.mancala.domain.Bowl#initialize(org.effrafax.game.mancala.domain.Player, int)
+	 * @see
+	 * org.effrafax.game.mancala.domain.Bowl#initialize(org.effrafax.game.mancala
+	 * .domain.Player, int)
 	 */
 	@Override
-	public void initialize(Player owner, int numberOfStones)
-	{
-
+	public void initialize(Player owner, int numberOfStones) {
 		setOwner(owner);
 		setHeap(new Heap(owner, numberOfStones));
 	}
 
 	/**
-	 * Sets the owner of this {@code AbstractBowl}. An exception is thrown if the owner is already set or {@code owner}
-	 * is null.
+	 * Sets the owner of this {@code AbstractBowl}. An exception is thrown if
+	 * the owner is already set or {@code owner} is null.
 	 * 
 	 * @param owner
 	 *            The {@code Player} who will own this {@code AbstractBowl}.
@@ -72,20 +60,16 @@ public abstract class AbstractBowl implements Bowl, Serializable
 	 * @throws IllegalStateException
 	 *             if the owner is already set.
 	 */
-	protected void setOwner(Player owner) throws IllegalArgumentException, IllegalStateException
-	{
-
-		if (owner == null)
-		{
-
-			throw new IllegalArgumentException(ExceptionMessage.OWNER_NULL.toString());
+	protected void setOwner(Player owner) throws IllegalArgumentException,
+			IllegalStateException {
+		if (owner == null) {
+			throw new IllegalArgumentException(ExceptionMessage.OWNER_NULL
+					.toString());
 		}
-		if (this.owner != null)
-		{
-
-			throw new IllegalStateException(ExceptionMessage.OWNER_ASSIGNED.toString());
+		if (this.owner != null) {
+			throw new IllegalStateException(ExceptionMessage.OWNER_ASSIGNED
+					.toString());
 		}
-
 		this.owner = owner;
 	}
 
@@ -95,9 +79,7 @@ public abstract class AbstractBowl implements Bowl, Serializable
 	 * @param heap
 	 *            The {@code Heap} used to set this {@code AbstractBowl} with.
 	 */
-	protected void setHeap(Heap heap)
-	{
-
+	protected void setHeap(Heap heap) {
 		this.heap = heap;
 	}
 
@@ -106,9 +88,7 @@ public abstract class AbstractBowl implements Bowl, Serializable
 	 * 
 	 * @return The {@code Heap} of this {@code AbstractBowl}.
 	 */
-	protected Heap getHeap()
-	{
-
+	protected Heap getHeap() {
 		return heap;
 	}
 
@@ -118,26 +98,22 @@ public abstract class AbstractBowl implements Bowl, Serializable
 	 * @see org.effrafax.game.mancala.domain.Bowl#captureHeap()
 	 */
 	@Override
-	public Heap captureHeap()
-	{
-
+	public Heap captureHeap() {
 		Heap capturedHeap = heap;
 		capturedHeap.changeOwner();
-
 		heap = new Heap(getOwner());
-
 		return capturedHeap;
 	}
 
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see org.effrafax.game.mancala.domain.Bowl#collectHeap(org.effrafax.game.mancala.domain.Heap)
+	 * @see
+	 * org.effrafax.game.mancala.domain.Bowl#collectHeap(org.effrafax.game.mancala
+	 * .domain.Heap)
 	 */
 	@Override
-	public void collectHeap(Heap heap)
-	{
-
+	public void collectHeap(Heap heap) {
 		getNextBowl().collectHeap(heap);
 	}
 
@@ -147,9 +123,7 @@ public abstract class AbstractBowl implements Bowl, Serializable
 	 * @see org.effrafax.game.mancala.domain.Bowl#countStones()
 	 */
 	@Override
-	public int countStones()
-	{
-
+	public int countStones() {
 		return heap.countStones();
 	}
 
@@ -159,9 +133,7 @@ public abstract class AbstractBowl implements Bowl, Serializable
 	 * @see org.effrafax.game.mancala.domain.Bowl#getKahala()
 	 */
 	@Override
-	public Kalaha getKahala()
-	{
-
+	public Kalaha getKahala() {
 		return getNextBowl().getKahala();
 	}
 
@@ -171,9 +143,7 @@ public abstract class AbstractBowl implements Bowl, Serializable
 	 * @see org.effrafax.game.mancala.domain.Bowl#getOwner()
 	 */
 	@Override
-	public Player getOwner()
-	{
-
+	public Player getOwner() {
 		return owner;
 	}
 
@@ -183,20 +153,16 @@ public abstract class AbstractBowl implements Bowl, Serializable
 	 * @see org.effrafax.game.mancala.domain.Bowl#assignNextBowl()
 	 */
 	@Override
-	public void setNextBowl(Bowl nextBowl) throws IllegalArgumentException, IllegalStateException
-	{
-
-		if (nextBowl == null)
-		{
-
-			throw new IllegalArgumentException(ExceptionMessage.BOWL_NULL.toString());
+	public void setNextBowl(Bowl nextBowl) throws IllegalArgumentException,
+			IllegalStateException {
+		if (nextBowl == null) {
+			throw new IllegalArgumentException(ExceptionMessage.BOWL_NULL
+					.toString());
 		}
-		if (this.nextBowl != null)
-		{
-
-			throw new IllegalStateException(ExceptionMessage.BOWL_ASSIGNED.toString());
+		if (this.nextBowl != null) {
+			throw new IllegalStateException(ExceptionMessage.BOWL_ASSIGNED
+					.toString());
 		}
-
 		this.nextBowl = nextBowl;
 	}
 
@@ -206,9 +172,7 @@ public abstract class AbstractBowl implements Bowl, Serializable
 	 * @see org.effrafax.game.mancala.domain.Bowl#getNextBowl()
 	 */
 	@Override
-	public Bowl getNextBowl()
-	{
-
+	public Bowl getNextBowl() {
 		return nextBowl;
 	}
 
@@ -218,32 +182,28 @@ public abstract class AbstractBowl implements Bowl, Serializable
 	 * @see org.effrafax.game.mancala.domain.Bowl#getOppositeBowl()
 	 */
 	@Override
-	public Bowl getOppositeBowl()
-	{
-
+	public Bowl getOppositeBowl() {
 		return oppositeBowl;
 	}
 
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see org.effrafax.game.mancala.domain.Bowl#setOppositeBowl(org.effrafax.game.mancala.domain.Bowl)
+	 * @see
+	 * org.effrafax.game.mancala.domain.Bowl#setOppositeBowl(org.effrafax.game
+	 * .mancala.domain.Bowl)
 	 */
 	@Override
-	public void setOppositeBowl(Bowl oppositeBowl) throws IllegalArgumentException, IllegalStateException
-	{
-
-		if (oppositeBowl == null)
-		{
-
-			throw new IllegalArgumentException(ExceptionMessage.BOWL_NULL.toString());
+	public void setOppositeBowl(Bowl oppositeBowl)
+			throws IllegalArgumentException, IllegalStateException {
+		if (oppositeBowl == null) {
+			throw new IllegalArgumentException(ExceptionMessage.BOWL_NULL
+					.toString());
 		}
-		if (this.oppositeBowl != null)
-		{
-
-			throw new IllegalStateException(ExceptionMessage.BOWL_ASSIGNED.toString());
+		if (this.oppositeBowl != null) {
+			throw new IllegalStateException(ExceptionMessage.BOWL_ASSIGNED
+					.toString());
 		}
-
 		this.oppositeBowl = oppositeBowl;
 	}
 
@@ -253,18 +213,13 @@ public abstract class AbstractBowl implements Bowl, Serializable
 	 * @see org.effrafax.game.mancala.domain.Bowl#play()
 	 */
 	@Override
-	public boolean play()
-	{
-
-		if (!playable())
-		{
-
-			throw new IllegalArgumentException(ExceptionMessage.NOT_PLAYABLE.toString());
+	public boolean play() {
+		if (!playable()) {
+			throw new IllegalArgumentException(ExceptionMessage.NOT_PLAYABLE
+					.toString());
 		}
-
 		Heap playingHeap = heap;
 		heap = new Heap(owner, 0);
-
 		return getNextBowl().receiveHeap(playingHeap);
 	}
 
@@ -274,10 +229,7 @@ public abstract class AbstractBowl implements Bowl, Serializable
 	 * @see org.effrafax.game.mancala.domain.Bowl#playable()
 	 */
 	@Override
-	public boolean playable()
-	{
-
+	public boolean playable() {
 		return countStones() > 0;
 	}
-
 }
