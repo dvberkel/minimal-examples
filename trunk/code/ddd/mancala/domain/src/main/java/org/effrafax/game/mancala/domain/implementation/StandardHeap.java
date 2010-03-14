@@ -1,10 +1,12 @@
 /**
  * 
  */
-package org.effrafax.game.mancala.domain;
+package org.effrafax.game.mancala.domain.implementation;
 
 import java.io.Serializable;
 
+import org.effrafax.game.mancala.domain.Heap;
+import org.effrafax.game.mancala.domain.Player;
 import org.effrafax.game.mancala.message.ExceptionMessage;
 
 /**

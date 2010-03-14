@@ -7,7 +7,6 @@ import static org.junit.Assert.assertEquals;
 
 import org.effrafax.game.mancala.domain.Bowl;
 import org.effrafax.game.mancala.domain.Heap;
-import org.effrafax.game.mancala.domain.StandardHeap;
 import org.effrafax.game.mancala.domain.Player;
 import org.junit.Test;
 

@@ -6,6 +6,7 @@ package org.effrafax.game.mancala.domain;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
+import org.effrafax.game.mancala.domain.implementation.StandardHeap;
 import org.junit.Test;
 
 /**

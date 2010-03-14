@@ -7,7 +7,6 @@ import java.io.Serializable;
 
 import org.effrafax.game.mancala.domain.Bowl;
 import org.effrafax.game.mancala.domain.Heap;
-import org.effrafax.game.mancala.domain.StandardHeap;
 import org.effrafax.game.mancala.domain.Kalaha;
 import org.effrafax.game.mancala.domain.Player;
 import org.effrafax.game.mancala.message.ExceptionMessage;
