@@ -9,18 +9,9 @@
 		<version>SNAPSHOT</version>
 	</parent>
 	
-	
 	<artifactId>mancala-domain</artifactId>
 	<packaging>jar</packaging>
 	<name>mancala-domain</name>
-
-	<dependencies>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<scope>test</scope>
-		</dependency>
-	</dependencies>
 
 	<build>
 		<plugins>
@@ -34,4 +25,12 @@
 			</plugin>
 		</plugins>
 	</build>
+
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
 </project>
