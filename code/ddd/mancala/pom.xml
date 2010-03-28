@@ -36,6 +36,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-eclipse-plugin</artifactId>
+				<version>${eclipse.plugin.version}</version>
 				<configuration>
 					<workspaceActiveCodeStyleProfileName>DaanvBerkelFormatter</workspaceActiveCodeStyleProfileName>
 					<workspaceCodeStylesURL>http://minimal-examples.googlecode.com/svn/trunk/code/ddd/mancala/src/main/resources/eclipse-formatter</workspaceCodeStylesURL>
