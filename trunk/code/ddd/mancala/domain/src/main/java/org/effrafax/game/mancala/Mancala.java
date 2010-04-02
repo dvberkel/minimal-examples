@@ -18,11 +18,13 @@ import org.effrafax.game.mancala.message.ExceptionMessage;
  * @author dvberkel
  */
 public class Mancala implements Serializable {
+
 	private static final long serialVersionUID = 37L;
 	private Player currentPlayer = null;
 	Map<Player, Bowl> startBowlMap = null;
 
 	public Mancala(MancalaBuilder builder) {
+
 		setCurrentPlayer(builder.getStartPlayer());
 		setStartBowlMap(BoardFactory.createBoard(builder));
 	}
@@ -31,6 +33,7 @@ public class Mancala implements Serializable {
 	 * @return the currentPlayer
 	 */
 	public Player getCurrentPlayer() {
+
 		return currentPlayer;
 	}
 
@@ -39,6 +42,7 @@ public class Mancala implements Serializable {
 	 * player and take a turn.
 	 */
 	public void endTurn() {
+
 		setCurrentPlayer(getCurrentPlayer().opponent());
 	}
 
@@ -47,6 +51,7 @@ public class Mancala implements Serializable {
 	 *            the currentPlayer to set
 	 */
 	private void setCurrentPlayer(Player currentPlayer) {
+
 		this.currentPlayer = currentPlayer;
 	}
 
@@ -54,6 +59,7 @@ public class Mancala implements Serializable {
 	 * @return the startBowlMap
 	 */
 	private Map<Player, Bowl> getStartBowlMap() {
+
 		return startBowlMap;
 	}
 
@@ -62,6 +68,7 @@ public class Mancala implements Serializable {
 	 *            the startBowlMap to set
 	 */
 	private void setStartBowlMap(Map<Player, Bowl> startBowlMap) {
+
 		this.startBowlMap = startBowlMap;
 	}
 
@@ -72,6 +79,7 @@ public class Mancala implements Serializable {
 	 * @return The start {@code Bowl} owned by the current {@code Player}.
 	 */
 	private Bowl getStartBowlCurrentPlayer() {
+
 		return getStartBowlMap().get(getCurrentPlayer());
 	}
 
@@ -84,17 +92,19 @@ public class Mancala implements Serializable {
 	 *         playable, {@code false} otherwise.
 	 */
 	private boolean playable(Bowl bowl) {
+
 		return bowl.getOwner().equals(getCurrentPlayer()) && bowl.playable();
 	}
 
 	/**
 	 * Returns the indices of playable {@code Bowl}s for the current {@code
-	 * Player}. The start {@code Bowl} gets index 0
-	 * and every skip increments the index.
+	 * Player}. The start {@code Bowl} gets index 0 and every skip increments
+	 * the index.
 	 * 
 	 * @return A {@code List<Integer>} of indices of playable {@code Bowl}s.
 	 */
 	public List<Integer> options() {
+
 		List<Integer> options = new ArrayList<Integer>();
 		Bowl bowl = getStartBowlCurrentPlayer();
 		Integer index = 0;
@@ -110,9 +120,8 @@ public class Mancala implements Serializable {
 
 	/**
 	 * Returns the bowl {@code index} skips away from the start {@code Bowl} of
-	 * the current {@code Player}. An {@code
-	 * IllegalArgumentException} is thrown when {@code index} is {@code null} or
-	 * negative.
+	 * the current {@code Player}. An {@code IllegalArgumentException} is thrown
+	 * when {@code index} is {@code null} or negative.
 	 * 
 	 * @param index
 	 *            The number of skips to perform from the start {@code Bowl}.
@@ -121,6 +130,7 @@ public class Mancala implements Serializable {
 	 *             if {@code index} is {@code null} or negative.
 	 */
 	private Bowl getBowlAtIndex(Integer index) throws IllegalArgumentException {
+
 		if (index == null || index < 0) {
 			throw new IllegalArgumentException(
 					ExceptionMessage.NON_NULL_NEGATIVE.toString());
@@ -142,6 +152,7 @@ public class Mancala implements Serializable {
 	 *         {@code false} otherwise.
 	 */
 	public boolean playable(Integer index) {
+
 		Bowl bowl = getBowlAtIndex(index);
 		return playable(bowl);
 	}
@@ -158,6 +169,7 @@ public class Mancala implements Serializable {
 	 *             playable.
 	 */
 	public void play(Integer index) throws IllegalArgumentException {
+
 		Bowl bowl = getBowlAtIndex(index);
 		if (!playable(bowl)) {
 			throw new IllegalStateException(ExceptionMessage.NOT_PLAYABLE
@@ -171,15 +183,15 @@ public class Mancala implements Serializable {
 
 	/**
 	 * Returns a {@code Map<Player,List<Integer>>}. This {@code Map} holds per
-	 * {@code Player} a {@code List<Integer>}.
-	 * Each {@code List} determines the number of stones each {@code Bowl}
-	 * contains, starting at the specific {@code
-	 * Player}s start {@code Bowl}.
+	 * {@code Player} a {@code List<Integer>}. Each {@code List} determines the
+	 * number of stones each {@code Bowl} contains, starting at the specific
+	 * {@code Player}s start {@code Bowl}.
 	 * 
 	 * @return A {@code Map<Player,List<Integer>>} which holds the number of
 	 *         stones contained by each {@code Bowl} per {@code Player}.
 	 */
 	public Map<Player, List<Integer>> getStonesPerPlayer() {
+
 		Map<Player, List<Integer>> stonesPerPlayer = new HashMap<Player, List<Integer>>();
 		for (Player player : Player.values()) {
 			List<Integer> stones = new ArrayList<Integer>();
@@ -195,24 +207,24 @@ public class Mancala implements Serializable {
 
 	/**
 	 * Returns if this {@code Mancala} game is finished. A game is finished if
-	 * the current {@code Player} does not have
-	 * any valid options to play.
+	 * the current {@code Player} does not have any valid options to play.
 	 * 
 	 * @return {@code true} if the game is finished, {@code false} otherwise.
 	 */
 	public boolean isFinished() {
+
 		return options().size() == 0;
 	}
 
 	/**
 	 * Returns the score both {@code Player}s currently have. The score is
-	 * determined by counting the number of stones
-	 * said {@code Player} owns.
+	 * determined by counting the number of stones said {@code Player} owns.
 	 * 
 	 * @return A {@code Map<Integer>} which represents the score per {@code
 	 *         Player}.
 	 */
 	public Map<Player, Integer> score() {
+
 		Map<Player, Integer> score = new HashMap<Player, Integer>();
 		Map<Player, List<Integer>> stonesPerPlayer = getStonesPerPlayer();
 		for (Player player : Player.values()) {
