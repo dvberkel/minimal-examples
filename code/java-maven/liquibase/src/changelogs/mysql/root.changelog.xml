@@ -6,29 +6,21 @@
 		<dbms type="mysql"/>
 	</preConditions>
 	<changeSet id="1" author="dvberkel">
-		<createTable tableName="news">
+		<createTable tableName="message">
 			<column name="id" type="int" autoIncrement="true">
 				<constraints primaryKey="true" nullable="false"/>
 			</column>
-			<column name="title" type="varchar(50)"/>
-			<column name="summary" type="varchar(50)"/>
-			<column name="abstract" type="varchar(50)"/>
+			<column name="content" type="varchar(500)"/>
 		</createTable>
 	</changeSet>
-	<changeSet id="2" author="dvberkel" context="test">
-		<insert tableName="news">
-			<column name="abstract" value="good news"/>
-			<column name="title">Liquibase 0.8 Released</column>
-			<column name="summary" value="YAY"/>
-		</insert>
-		<insert tableName="news">
-			<column name="title" value="Liquibase 0.9 Released"/>
-			<column name="summary" value="Horay!"/>
-		</insert>
+	<changeSet id="2" author="dvberkel">
+		<addColumn tableName="message">
+    		<column name="header" type="varchar(50)"/>
+		</addColumn>		
 	</changeSet>
-	<changeSet id="3" author="dvberkel" context="demo">
-		<insert tableName="news">
-			<column name="title" value="Liquibase 1.0 Released"/>
-		</insert>
+	<changeSet id="3" author="dvberkel">
+		<renameColumn tableName="message" oldColumnName="header" newColumnName="title"/>
 	</changeSet>
+	<changeSet id="4" author="dvberkel">
+	</changeSet>	
 </databaseChangeLog>
