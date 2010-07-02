@@ -18,9 +18,30 @@
     		<column name="header" type="varchar(50)"/>
 		</addColumn>		
 	</changeSet>
-	<changeSet id="3" author="dvberkel">
-		<renameColumn tableName="message" oldColumnName="header" newColumnName="title"/>
-	</changeSet>
-	<changeSet id="4" author="dvberkel">
+	<changeSet id="2a" author="dvberkel">
+		<renameColumn tableName="message" oldColumnName="header" newColumnName="title" columnDataType="varchar(50)"/>
 	</changeSet>	
+	<changeSet id="3" author="dvberkel">
+		<addDefaultValue tableName="message" columnName="title" defaultValue="Enter Title"/>
+		<addDefaultValue tableName="message" columnName="content" defaultValue="Enter Content"/>
+	</changeSet>
+	<changeSet id="4" author="dvberkel" >
+		<insert tableName="message">
+		    <column name="title" value="First Post"/>
+		    <column name="content" value="This is the first post into the message table"/>
+		</insert>
+		<rollback>
+			<delete tableName="message">
+				<where>title="First Post"</where>
+			</delete>
+		</rollback>
+	</changeSet>	
+	<changeSet id="5" author="dvberkel" >
+		<addNotNullConstraint tableName="message" columnName="title" columnDataType="varchar(50)"/>
+		<addNotNullConstraint tableName="message" columnName="content" columnDataType="varchar(500)"/>
+	</changeSet>
+<!-- 
+	<changeSet id="0" author="dvberkel" >
+	</changeSet>
+-->	
 </databaseChangeLog>
