@@ -1,29 +1,21 @@
 package org.effrafax.minimal.guice.implementations;
 
-import org.effrafax.minimal.guice.interfaces.Artist;
 import org.effrafax.minimal.guice.interfaces.Muze;
 
 import com.google.inject.Inject;
 
-public class Painter implements Artist
+public class Painter extends AbstractArtist
 {
-	private Muze muze;
-
 	@Inject
 	public Painter(Muze muze)
 	{
-		this.muze = muze;
-	}
-
-	protected String workOfArt()
-	{
-		return "painting";
+		super(muze);
 	}
 
 	@Override
-	public void perform()
+	protected String workOfArt()
 	{
-		System.out.format("I created a %s %s\n", muze.inspire(), workOfArt());
+		return "piece of art";
 	}
 
 }
