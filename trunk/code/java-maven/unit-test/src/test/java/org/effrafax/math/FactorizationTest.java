@@ -34,7 +34,6 @@ public class FactorizationTest
 	@Parameters
 	public static Collection<FactorizationTestBuilder[]> data()
 	{
-		Object[] b = new Object[] { 2, new Double[] { 2.0 } };
 		List<FactorizationTestBuilder[]> data = new ArrayList<FactorizationTestBuilder[]>();
 		data.add(new FactorizationTestBuilder[] { FactorizationTestBuilder.withNumber(2).expect(2) });
 		data.add(new FactorizationTestBuilder[] { FactorizationTestBuilder.withNumber(8).expect(2, 2, 2) });
