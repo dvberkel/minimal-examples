@@ -19,10 +19,10 @@ public class FactorizationTest
 
 	private List<Integer> expectedResult;
 
-	public FactorizationTest(int number, Integer[] result)
+	public FactorizationTest(FactorizationTestBuilder builder)
 	{
-		this.number = number;
-		this.expectedResult = Arrays.asList(result);
+		this.number = builder.getNumber();
+		this.expectedResult = builder.getExpectedResult();
 	}
 
 	@Test
@@ -32,13 +32,47 @@ public class FactorizationTest
 	}
 
 	@Parameters
-	public static Collection<Object[]> data()
+	public static Collection<FactorizationTestBuilder[]> data()
 	{
-		List<Object[]> data = new ArrayList<Object[]>();
-		data.add(new Object[] { 2, new Integer[] { 2 } });
-		data.add(new Object[] { 8, new Integer[] { 2, 2, 2 } });
-		data.add(new Object[] { 9, new Integer[] { 3, 3 } });
-		data.add(new Object[] { 72, new Integer[] { 2, 2, 2, 3, 3 } });
+		Object[] b = new Object[] { 2, new Double[] { 2.0 } };
+		List<FactorizationTestBuilder[]> data = new ArrayList<FactorizationTestBuilder[]>();
+		data.add(new FactorizationTestBuilder[] { FactorizationTestBuilder.withNumber(2).expect(2) });
+		data.add(new FactorizationTestBuilder[] { FactorizationTestBuilder.withNumber(8).expect(2, 2, 2) });
+		data.add(new FactorizationTestBuilder[] { FactorizationTestBuilder.withNumber(9).expect(3, 3) });
+		data.add(new FactorizationTestBuilder[] { FactorizationTestBuilder.withNumber(72).expect(2, 2, 2, 3, 3) });
 		return data;
+	}
+}
+
+class FactorizationTestBuilder
+{
+	private int number;
+
+	private List<Integer> expectedResult = new ArrayList<Integer>();
+
+	public static FactorizationTestBuilder withNumber(int number)
+	{
+		return new FactorizationTestBuilder(number);
+	}
+
+	private FactorizationTestBuilder(int number)
+	{
+		this.number = number;
+	}
+
+	public FactorizationTestBuilder expect(Integer... expectedResult)
+	{
+		this.expectedResult = Arrays.asList(expectedResult);
+		return this;
+	}
+
+	public int getNumber()
+	{
+		return number;
+	}
+
+	public List<Integer> getExpectedResult()
+	{
+		return expectedResult;
 	}
 }
