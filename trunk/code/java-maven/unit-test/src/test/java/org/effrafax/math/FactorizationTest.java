@@ -9,10 +9,10 @@ import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
+import org.junit.runners.ParameterizedWithBuilder;
 import org.junit.runners.Parameterized.Parameters;
 
-@RunWith(Parameterized.class)
+@RunWith(ParameterizedWithBuilder.class)
 public class FactorizationTest
 {
 	private int number;
@@ -32,13 +32,13 @@ public class FactorizationTest
 	}
 
 	@Parameters
-	public static Collection<FactorizationTestBuilder[]> data()
+	public static Collection<FactorizationTestBuilder> data()
 	{
-		List<FactorizationTestBuilder[]> data = new ArrayList<FactorizationTestBuilder[]>();
-		data.add(new FactorizationTestBuilder[] { FactorizationTestBuilder.withNumber(2).expect(2) });
-		data.add(new FactorizationTestBuilder[] { FactorizationTestBuilder.withNumber(8).expect(2, 2, 2) });
-		data.add(new FactorizationTestBuilder[] { FactorizationTestBuilder.withNumber(9).expect(3, 3) });
-		data.add(new FactorizationTestBuilder[] { FactorizationTestBuilder.withNumber(72).expect(2, 2, 2, 3, 3) });
+		List<FactorizationTestBuilder> data = new ArrayList<FactorizationTestBuilder>();
+		data.add(FactorizationTestBuilder.withNumber(2).expect(2));
+		data.add(FactorizationTestBuilder.withNumber(8).expect(2, 2, 2));
+		data.add(FactorizationTestBuilder.withNumber(9).expect(3, 3));
+		data.add(FactorizationTestBuilder.withNumber(72).expect(2, 2, 2, 3, 3));
 		return data;
 	}
 }
