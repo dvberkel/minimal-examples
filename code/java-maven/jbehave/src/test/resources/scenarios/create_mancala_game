@@ -6,4 +6,4 @@ So that I can start playing the game
 Scenario: create a default game
 Given I have a mancala game factory
 When I ask it to create a new game
-then I should get a mancala game with 6 holes and 4 beads
+then I should get a mancala game with 6 holes and 4 beads in each hole
